@@ -8,9 +8,7 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('../build'));
-}
+
 app.get('/api/Login', (req, res) => {
   
   datalayer.Login(req.query.Username,req.query.Password, 
